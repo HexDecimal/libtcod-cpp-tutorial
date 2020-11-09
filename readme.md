@@ -24,8 +24,8 @@ the following (you might need to build libraries during the install step):
 
 You can now run the executable at `./build/bin/tutorial.exe`.
 
-[Visual Studio Code] is the recommended IDE, you'll want the following plugins
-to be active for this workspace:
+[Visual Studio Code](https://code.visualstudio.com/) is the recommended IDE,
+you'll want the following plugins to be active for this workspace:
 
 * [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 * [C++ Intellisense](https://marketplace.visualstudio.com/items?itemName=austin.code-gnu-global)
