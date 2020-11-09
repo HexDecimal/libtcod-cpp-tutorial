@@ -19,4 +19,4 @@ set(CMAKE_BUILD_WITH_INSTALL_RPATH ON)
 # Configure the tutorial executable.
 add_executable(tutorial src/main.cpp)
 target_link_libraries(tutorial ${LINK_LIBTCOD})  # Link with libtcod and SDL
-set_property(TARGET tutorial PROPERTY CXX_STANDARD 17)  # Compile as C++17
+target_compile_features(tutorial PUBLIC cxx_std_17)  # Require C++17
