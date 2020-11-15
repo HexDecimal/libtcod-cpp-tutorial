@@ -4,11 +4,13 @@
     Program entry point.
  */
 int main(int argc, char* argv[]) {
+  tcod::ConsolePtr console = tcod::new_console(80, 25);  // Main console.
+
   // Configure the context.
   TCOD_ContextParams params = {};
   params.tcod_version = TCOD_COMPILEDVERSION;  // This is required.
-  params.x = SDL_WINDOWPOS_UNDEFINED;  // Must be set to this when a more specific value isn't needed.
-  params.y = SDL_WINDOWPOS_UNDEFINED;
+  params.columns = console->w;  // Derive the window size from the console size.
+  params.rows = console->h;
   params.sdl_window_flags = SDL_WINDOW_RESIZABLE;
   params.vsync = true;
   params.argc = argc;  // This allows some user-control of the context.
@@ -16,7 +18,10 @@ int main(int argc, char* argv[]) {
   tcod::ContextPtr context = tcod::new_context(params);
 
   while (1) {  // Game loop.
-    // No dispaly output yet, but event handling should prevent the OS from panicing.
+    TCOD_console_clear(console.get());
+    tcod::print(*console, 0, 0, "Hello World", nullptr, nullptr, TCOD_BKGND_NONE, TCOD_LEFT);
+    context->present(*console);  // Updates the visible display.
+
     SDL_Event event;
     SDL_WaitEvent(&event);
     switch (event.type) {

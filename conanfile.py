@@ -5,7 +5,7 @@ class LibtcodSamplesConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake"
     requires = (
-        "libtcod/1.16.0-alpha.14@hexdecimal/stable",
+        "libtcod/1.16.0-alpha.15@hexdecimal/stable",
         "sdl2/2.0.12@bincrafters/stable",
     )
     default_options = {"*:shared": True}
